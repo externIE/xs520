@@ -133,7 +133,7 @@
     function createText(t) {
         var fontSize = 860/(t.length);
         if (fontSize > 160) fontSize = 160;
-        fontSize = 240;
+        fontSize = 250;
         text.text = t;
         text.font = "900 "+fontSize+"px 'Source Sans Pro'";
         text.textAlign = 'center';
@@ -143,12 +143,12 @@
         textStage.update();
 
         var ctx = document.getElementById('text').getContext('2d');
-        var pix = ctx.getImageData(0,0,600,200).data;
+        var pix = ctx.getImageData(0,0,1300,900).data;
         textPixels = [];
         for (var i = pix.length; i >= 0; i -= 4) {
             if (pix[i] != 0) {
-                var x = (i / 4) % 600;
-                var y = Math.floor(Math.floor(i/600)/4);
+                var x = (i / 4) % 1300;
+                var y = Math.floor(Math.floor(i/1300)/4);
 
                 if((x && x%8 == 0) && (y && y%8 == 0)) textPixels.push({x: x, y: y});
             }
